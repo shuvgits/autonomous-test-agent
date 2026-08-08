@@ -1,0 +1,220 @@
+{
+  "benchmark_metadata": {
+    "date": "2026-07-24",
+    "model": "Claude Opus",
+    "sandbox": "docker",
+    "max_iterations": 3,
+    "timeout_seconds": 60,
+    "boltons_version": "TBD",
+    "agent_version": "TBD"
+  },
+  "summary": {
+    "modules_attempted": 7,
+    "modules_passed": 6,
+    "modules_failed": 1,
+    "mean_coverage": 0.953,
+    "self_correction_rate": 0.5,
+    "mean_iterations_to_pass": 1.7,
+    "total_cost": 0.57,
+    "mean_cost_per_module": 0.082
+  },
+  "modules": [
+    {
+      "name": "pathutils",
+      "statements": 36,
+      "coverage": 1.0,
+      "iterations": 1,
+      "passed": true,
+      "self_corrected": false,
+      "cost": 0.031,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "passed",
+          "tests_count": 8,
+          "coverage": 1.0,
+          "cost": 0.031,
+          "time_seconds": 12.3
+        }
+      ]
+    },
+    {
+      "name": "mathutils",
+      "statements": 113,
+      "coverage": 1.0,
+      "iterations": 1,
+      "passed": true,
+      "self_corrected": false,
+      "cost": 0.056,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "passed",
+          "tests_count": 15,
+          "coverage": 1.0,
+          "cost": 0.056,
+          "time_seconds": 18.7
+        }
+      ]
+    },
+    {
+      "name": "queueutils",
+      "statements": 86,
+      "coverage": 0.965,
+      "iterations": 1,
+      "passed": true,
+      "self_corrected": false,
+      "cost": 0.044,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "passed",
+          "tests_count": 12,
+          "coverage": 0.965,
+          "cost": 0.044,
+          "time_seconds": 15.2
+        }
+      ]
+    },
+    {
+      "name": "typeutils",
+      "statements": 55,
+      "coverage": 0.942,
+      "iterations": 2,
+      "passed": true,
+      "self_corrected": true,
+      "cost": 0.062,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "failed",
+          "tests_count": 22,
+          "failures": 1,
+          "failure_message": "AssertionError in test_custom_type",
+          "cost": 0.029,
+          "time_seconds": 19.4
+        },
+        {
+          "iteration": 2,
+          "result": "passed",
+          "tests_count": 22,
+          "coverage": 0.942,
+          "cost": 0.033,
+          "time_seconds": 16.1
+        }
+      ]
+    },
+    {
+      "name": "gcutils",
+      "statements": 35,
+      "coverage": 0.906,
+      "iterations": 3,
+      "passed": true,
+      "self_corrected": true,
+      "cost": 0.129,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "failed",
+          "tests_count": 18,
+          "failures": 2,
+          "failure_message": "AssertionError in test_gc_callback_1, test_gc_callback_2",
+          "cost": 0.039,
+          "time_seconds": 22.1
+        },
+        {
+          "iteration": 2,
+          "result": "failed",
+          "tests_count": 18,
+          "failures": 1,
+          "failure_message": "AssertionError in test_gc_callback_2",
+          "cost": 0.045,
+          "time_seconds": 20.3
+        },
+        {
+          "iteration": 3,
+          "result": "passed",
+          "tests_count": 18,
+          "coverage": 0.906,
+          "cost": 0.045,
+          "time_seconds": 18.9
+        }
+      ]
+    },
+    {
+      "name": "namedutils",
+      "statements": 103,
+      "coverage": 0.904,
+      "iterations": 2,
+      "passed": true,
+      "self_corrected": true,
+      "cost": 0.137,
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "failed",
+          "tests_count": 24,
+          "failures": 3,
+          "failure_message": "Multiple assertion failures in namedtuple edge cases",
+          "cost": 0.068,
+          "time_seconds": 28.4
+        },
+        {
+          "iteration": 2,
+          "result": "passed",
+          "tests_count": 24,
+          "coverage": 0.904,
+          "cost": 0.069,
+          "time_seconds": 25.1
+        }
+      ]
+    },
+    {
+      "name": "mboxutils",
+      "statements": 53,
+      "coverage": null,
+      "iterations": 3,
+      "passed": false,
+      "self_corrected": false,
+      "cost": 0.114,
+      "stop_reason": "iteration_limit",
+      "failure_reason": "File I/O blocked by sandbox (mailbox module)",
+      "iterations_detail": [
+        {
+          "iteration": 1,
+          "result": "timeout",
+          "tests_count": 8,
+          "timeout_seconds": 60,
+          "failure_message": "Timeout at 60s: file operations blocked by sandbox",
+          "cost": 0.034,
+          "time_seconds": 61.2
+        },
+        {
+          "iteration": 2,
+          "result": "timeout",
+          "tests_count": 7,
+          "timeout_seconds": 60,
+          "failure_message": "Timeout at 60s: file operations blocked by sandbox",
+          "cost": 0.041,
+          "time_seconds": 61.5
+        },
+        {
+          "iteration": 3,
+          "result": "failed",
+          "tests_count": 8,
+          "failures": 1,
+          "failure_message": "FileNotFoundError: tempfile operations blocked",
+          "cost": 0.039,
+          "time_seconds": 22.3
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "self_correction": "Three of six passing modules recovered from iteration 1 failure: typeutils (1 test fixed), gcutils (2→1 failures), namedutils (3→0 failures). The model did not rewrite the suite; it fixed individual tests.",
+    "mboxutils_context": "mboxutils wraps the mailbox module and requires real file I/O. The sandbox prohibits filesystem writes outside its tmpdir and network access. Iterations 1–2 timed out; iteration 3 produced fewer tests (110 lines vs 198 in iteration 1) but still failed. This illustrates operating limits, not a tool bug.",
+    "repeated_failure_example": "A separate run of gcutils showed iterations 1–3 with byte-identical failures (1 failed, 17 passed). The model made cosmetic edits without changing the failure. Iteration 4 collapsed to 4 lines before iteration 5 solved it. Cost: $0.24 vs $0.13 on this successful run. A failure-signature hash would have detected stalling.",
+    "dependencies": "All modules are pure stdlib. No third-party imports. If a module imported requests, numpy, or any external package, the sandbox would fail at import because it has no network access.",
+    "coverage_note": "Line coverage only. No branch coverage. 100% line coverage does not measure test quality; mutation testing would."
+  }
+}
