@@ -211,7 +211,7 @@
     }
   ],
   "notes": {
-    "self_correction": "Three of six passing modules recovered from iteration 1 failure: typeutils (1 test fixed), gcutils (2→1 failures), namedutils (3→0 failures). The model did not rewrite the suite; it fixed individual tests.",
+    "self_correction": "Three of six passing modules recovered from iteration 1 failure: typeutils (1 test fixed), gcutils (2→1 failures), namedutils (3→0 failures). The model did not rewrite the suite; it fixed individual tests. The successful retry retained the same test count in the recorded runs and resolved the reported failures. Generated-test diffs should be retained to verify the scope of changes.",
     "mboxutils_context": "mboxutils wraps the mailbox module and requires real file I/O. The sandbox prohibits filesystem writes outside its tmpdir and network access. Iterations 1–2 timed out; iteration 3 produced fewer tests (110 lines vs 198 in iteration 1) but still failed. This illustrates operating limits, not a tool bug.",
     "repeated_failure_example": "A separate run of gcutils showed iterations 1–3 with byte-identical failures (1 failed, 17 passed). The model made cosmetic edits without changing the failure. Iteration 4 collapsed to 4 lines before iteration 5 solved it. Cost: $0.24 vs $0.13 on this successful run. A failure-signature hash would have detected stalling.",
     "dependencies": "All modules are pure stdlib. No third-party imports. If a module imported requests, numpy, or any external package, the sandbox would fail at import because it has no network access.",
