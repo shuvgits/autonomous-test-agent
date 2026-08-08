@@ -1,7 +1,7 @@
 {
   "benchmark_metadata": {
     "date": "2026-07-24",
-    "model": "Claude Opus",
+    "model": "claude-sonnet-4-5",
     "sandbox": "docker",
     "max_iterations": 3,
     "timeout_seconds": 60,
